@@ -5,11 +5,24 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "port": "8080"
   },
   "dependencies": {
+    "@okta/jwt-verifier": "^1.0.0",
+    "@okta/okta-vue": "^1.1.0",
+    "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "bootstrap-vue": "^2.0.0-rc.28",
     "core-js": "^2.6.5",
+    "cors": "^2.8.5",
+    "epilogue": "^0.7.1",
+    "express": "^4.17.1",
+    "finale-rest": "^1.0.6",
+    "jquery": "^3.4.1",
     "register-service-worker": "^1.6.2",
+    "sequelize": "^5.15.1",
+    "sqlite3": "^4.1.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3"
   },

@@ -1,15 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+// import Home from './views/Home.vue'
+import Hello from '@/components/Hello'
+import PostsManager from '@/components/PostsManager'
+import Auth from '@okta/okta-vue'
+
+Vue.use(Auth, {
+  issuer: 'https://dev-743241.okta.com/oauth2/default',
+  client_id: '0oa155afr0QeKAOrH357',
+  redirect_uri: 'http://localhost:8080/implicit/callback',
+  scope: 'openid profile email'
+})
 
 Vue.use(Router)
 
-export default new Router({
+let router = new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'Hello',
+      component: Hello
     },
     {
       path: '/about',
@@ -18,6 +29,22 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+    },
+    {
+      path: '/implicit/callback',
+      component: Auth.handleCallback()
+    },
+    {
+      path: '/posts-manager',
+      name: 'PostsManager',
+      component: PostsManager,
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })
+
+router.beforeEach(Vue.prototype.$auth.authRedirectGuard())
+
+export default router
