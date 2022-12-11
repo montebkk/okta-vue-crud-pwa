@@ -17,7 +17,7 @@
     "core-js": "^2.6.5",
     "cors": "^2.8.5",
     "epilogue": "^0.7.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "finale-rest": "^1.0.6",
     "jquery": "^3.4.1",
     "register-service-worker": "^1.6.2",
